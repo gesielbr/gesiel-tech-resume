@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Necessário para Angular 17+ (Standalone Components)
+import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header';
+import { About } from '../../about/about';
+import { SpecialtyCards } from '../../specialty-cards/specialty-cards';
 
 @Component({
-  selector: 'app-resume-pt-br', // O seletor que você usará no HTML de outros componentes
-  standalone: true, // Use 'true' se for um Standalone Component (padrão em novos projetos)
-  imports: [CommonModule, HeaderComponent], // Importe módulos que este componente precisa
+  selector: 'app-resume-pt-br',
+  standalone: true,
+  imports: [CommonModule, HeaderComponent, About, SpecialtyCards],
   templateUrl: './resume-pt-br.html',
-  styleUrl: './resume-pt-br.css', // Note a mudança para 'styleUrl' no Angular 17+
+  styleUrl: './resume-pt-br.css',
 })
 export class ResumePtBrComponent {
-  // Adicione aqui a lógica do seu componente (propriedades, métodos, etc.)
   title = 'Meu Currículo em Português';
 }

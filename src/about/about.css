@@ -1,0 +1,32 @@
+/* Copie apenas o CSS específico da seção About */
+
+.highlight-box {
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, rgba(138, 43, 226, 0.1) 100%);
+  border: 2px solid rgba(0, 255, 255, 0.3);
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+.highlight-box h3 {
+  color: var(--primary-cyan);
+  font-family: 'Fira Code', monospace;
+  margin-bottom: 1rem;
+}
+
+.code-accent {
+  font-family: 'Fira Code', monospace;
+  color: var(--primary-purple);
+  background: rgba(138, 43, 226, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Estilos para os cards internos */
+.border-cyan {
+  border-color: var(--primary-cyan) !important;
+}
+
+.text-cyan {
+  color: var(--primary-cyan) !important;
+}
