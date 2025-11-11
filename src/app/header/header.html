@@ -1,0 +1,44 @@
+<header class="header-section py-5">
+  <div class="container">
+    <div class="header-content">
+      <h1 itemscope itemtype="https://schema.org/Person">
+        <span itemprop="name">{{ name }}</span>
+      </h1>
+      <p class="title-main mb-3" itemprop="jobTitle">
+        {{ jobTitle }}
+      </p>
+      <div class="d-flex flex-wrap gap-3 align-items-center mb-3">
+        <span class="badge badge-remote rounded-pill">
+          <i class="bi bi-globe-americas"></i> Disponível para Trabalho Remoto Global
+        </span>
+      </div>
+      <div class="row g-3 mt-3">
+        <div class="col-md-4">
+          <div class="contact-item">
+            <i class="bi bi-geo-alt-fill"></i>
+            <span itemprop="address">{{ location }}</span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="contact-item">
+            <i class="bi bi-envelope-fill"></i>
+            <a
+              href="mailto:{{ email }}"
+              class="text-decoration-none"
+              style="color: var(--text-muted)"
+              itemprop="email"
+            >
+              {{ email }}
+            </a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="contact-item">
+            <i class="bi bi-telephone-fill"></i>
+            <span itemprop="telephone">{{ phone }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
