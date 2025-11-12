@@ -1,0 +1,63 @@
+/* Copie o CSS específico das experience-cards do seu arquivo atual */
+.experience-card {
+  background: rgba(30, 41, 59, 0.4);
+  border-left: 3px solid var(--primary-cyan);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.experience-card:hover {
+  background: rgba(30, 41, 59, 0.6);
+  transform: translateX(5px);
+  box-shadow: 0 5px 20px rgba(0, 255, 255, 0.1);
+}
+
+.job-title {
+  font-size: 1.2rem;
+  color: var(--primary-cyan);
+  font-weight: 600;
+}
+
+.company-name {
+  color: var(--primary-purple);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.period {
+  color: #64748b;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.experience-card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.experience-card li {
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 8px;
+  color: #cbd5e1;
+}
+
+.experience-card li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--primary-cyan);
+}
+
+.bi {
+  &.bi-calendar-event {
+    color: #8b9cb5;
+    margin-right: 0.5rem;
+  }
+}
+
+.period[_ngcontent-ng-c2978320128] {
+  color: #8b9cb5;
+}
