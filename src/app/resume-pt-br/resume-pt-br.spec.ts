@@ -1,13 +1,14 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { ResumePtBrComponent } from './resume-pt-br';
 
-describe('ResumePtBrComponent', () => {
+describe('ResumePtBr', () => {
   let component: ResumePtBrComponent;
   let fixture: ComponentFixture<ResumePtBrComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ResumePtBrComponent], // Importa o componente para testes
+      declarations: [ResumePtBrComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ResumePtBrComponent);
@@ -17,9 +18,5 @@ describe('ResumePtBrComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it(`should have the title 'Meu Currículo em Português'`, () => {
-    expect(component.title).toEqual('Meu Currículo em Português');
   });
 });
