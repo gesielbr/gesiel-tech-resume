@@ -1,4 +1,10 @@
-<article class="content-card p-4">
+<article class="content-card p-4 border-pulse">
+  <div class="col-12 mb-3">
+    <span class="component-notice energy-pulse" role="status" aria-live="polite">
+      ⚡ Componente Angular
+    </span>
+  </div>
+
   <section>
     <h2 class="section-title">Experiência Profissional</h2>
 
@@ -9,8 +15,8 @@
 
       <div class="period mb-3">
         <i class="bi bi-calendar-event"></i>
-        <time [attr.datetime]="exp.startDate">{{ formatDate(exp.startDate) }}</time> - @if
-        (exp.currentJob) {
+        <time [attr.datetime]="exp.startDate">{{ formatDate(exp.startDate) }}</time>
+        - @if (exp.currentJob) {
         <span>Presente</span>
         } @else {
         <time [attr.datetime]="exp.endDate">{{ formatDate(exp.endDate) }}</time>

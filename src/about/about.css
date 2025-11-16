@@ -30,3 +30,48 @@
 .text-cyan {
   color: var(--primary-cyan) !important;
 }
+
+.component-notice {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+
+  background: rgba(0, 150, 255, 0.12);
+  border: 1px solid rgba(0, 180, 255, 0.45);
+  color: #29b6ff;
+
+  padding: 6px 14px;
+  border-radius: 50px;
+
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.2px;
+
+  text-shadow: 0 0 6px rgba(0, 180, 255, 0.75);
+  box-shadow: 0 0 6px rgba(0, 180, 255, 0.45), inset 0 0 4px rgba(0, 180, 255, 0.25);
+
+  backdrop-filter: blur(4px);
+}
+
+/* --- Pulsação Neon Azul --- */
+.energy-pulse {
+  animation: pulseNeonBlue 2.4s ease-in-out infinite;
+}
+
+@keyframes pulseNeonBlue {
+  0% {
+    box-shadow: 0 0 6px rgba(0, 180, 255, 0.5), 0 0 12px rgba(0, 180, 255, 0.4),
+      inset 0 0 4px rgba(0, 180, 255, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 10px rgba(0, 200, 255, 0.75), 0 0 18px rgba(0, 200, 255, 0.6),
+      inset 0 0 6px rgba(0, 200, 255, 0.45);
+    transform: scale(1.03);
+  }
+
+  100% {
+    box-shadow: 0 0 6px rgba(0, 180, 255, 0.5), 0 0 12px rgba(0, 180, 255, 0.4),
+      inset 0 0 4px rgba(0, 180, 255, 0.3);
+  }
+}
