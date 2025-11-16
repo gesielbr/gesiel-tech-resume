@@ -92,3 +92,13 @@
   position: sticky;
   top: 20px;
 }
+
+.footer-icon {
+  color: var(--primary-cyan);
+  transition: 0.3s ease;
+}
+
+.footer-icon:hover {
+  color: var(--primary-cyan-bright, #00eaff); /* fallback */
+  text-shadow: 0 0 8px var(--primary-cyan);
+}
