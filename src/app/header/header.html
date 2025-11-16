@@ -1,41 +1,50 @@
 <header class="header-section py-5">
   <div class="container">
     <div class="header-content">
-      <h1 itemscope itemtype="https://schema.org/Person">
-        <span itemprop="name">{{ name }}</span>
+      <!-- AVISO DO COMPONENTE -->
+      <span class="component-notice energy-pulse" role="status" aria-live="polite">
+        ⚙️ Isto aqui é um componente Angular
+      </span>
+
+      <h1 class="mt-4 mt-lg-0" itemscope itemtype="https://schema.org/Person">
+        <span itemprop="name">{{ profileData.name }}</span>
       </h1>
       <p class="title-main mb-3" itemprop="jobTitle">
-        {{ jobTitle }}
+        {{ profileData.jobTitle }}
       </p>
+
       <div class="d-flex flex-wrap gap-3 align-items-center mb-3">
         <span class="badge badge-remote rounded-pill">
-          <i class="bi bi-globe-americas"></i> Disponível para Trabalho Remoto Global
+          <i class="bi bi-globe-americas"></i> Disponível para Trabalho Remoto
         </span>
       </div>
+
       <div class="row g-3 mt-3">
-        <div class="col-md-4">
+        <div class="col-md-4 d-flex flex-wrap justify-content-center">
           <div class="contact-item">
             <i class="bi bi-geo-alt-fill"></i>
-            <span itemprop="address">{{ location }}</span>
+            <span itemprop="address">{{ profileData.location }}</span>
           </div>
         </div>
-        <div class="col-md-4">
+
+        <div class="col-md-4 d-flex flex-wrap justify-content-center">
           <div class="contact-item">
             <i class="bi bi-envelope-fill"></i>
             <a
-              href="mailto:{{ email }}"
+              href="mailto:{{ profileData.email }}"
               class="text-decoration-none"
               style="color: var(--text-muted)"
               itemprop="email"
             >
-              {{ email }}
+              {{ profileData.email }}
             </a>
           </div>
         </div>
-        <div class="col-md-4">
+
+        <div class="col-md-4 d-flex flex-wrap justify-content-center">
           <div class="contact-item">
             <i class="bi bi-telephone-fill"></i>
-            <span itemprop="telephone">{{ phone }}</span>
+            <span itemprop="telephone">{{ profileData.phone }}</span>
           </div>
         </div>
       </div>

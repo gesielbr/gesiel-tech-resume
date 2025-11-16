@@ -98,3 +98,80 @@ h1 {
 .contact-item i {
   color: var(--primary-cyan);
 }
+
+/* Base */
+.header-section {
+  position: relative;
+}
+
+/* Aviso base */
+.component-notice {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.4px;
+  z-index: 99;
+  color: #fff;
+  backdrop-filter: blur(4px);
+}
+
+/* ================================================== */
+/*       PULSO SUAVE — ENERGIA FLUINDO                */
+/* ================================================== */
+
+.component-notice.energy-pulse {
+  background: rgba(255, 0, 153, 0.18); /* rosa energético */
+  border: 1px solid rgba(255, 0, 153, 0.5); /* leve borda neon */
+
+  /* brilho suave */
+  box-shadow: 0 0 6px rgba(255, 0, 153, 0.45), 0 0 12px rgba(255, 0, 153, 0.35),
+    inset 0 0 8px rgba(255, 0, 153, 0.35);
+
+  /* pulsação */
+  animation: energySoftPulse 2.2s ease-in-out infinite;
+}
+
+/* Keyframes do pulso suave */
+@keyframes energySoftPulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 6px rgba(255, 0, 153, 0.4), 0 0 12px rgba(255, 0, 153, 0.3),
+      inset 0 0 8px rgba(255, 0, 153, 0.3);
+  }
+
+  50% {
+    transform: scale(1.04);
+    opacity: 0.85;
+    box-shadow: 0 0 10px rgba(255, 0, 153, 0.55), 0 0 20px rgba(255, 0, 153, 0.45),
+      inset 0 0 12px rgba(255, 0, 153, 0.45);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 6px rgba(255, 0, 153, 0.4), 0 0 12px rgba(255, 0, 153, 0.3),
+      inset 0 0 8px rgba(255, 0, 153, 0.3);
+  }
+}
+
+/* Acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+  .component-notice {
+    animation: none;
+  }
+}
+
+/* Responsivo */
+@media (max-width: 992px) {
+  .component-notice {
+    font-size: 0.78rem;
+    padding: 0.35rem 0.7rem;
+    top: -46px;
+    right: 0;
+  }
+}
