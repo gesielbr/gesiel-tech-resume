@@ -15,3 +15,19 @@
     border-color: rgba(255, 217, 0, 0); /* some novamente */
   }
 }
+
+@keyframes elementPulse {
+  0% {
+    opacity: 0; /* Invisível */
+  }
+  50% {
+    opacity: 1; /* Aparece totalmente */
+  }
+  100% {
+    opacity: 0; /* Some novamente */
+  }
+}
+
+.component-notice {
+  animation: elementPulse 2s ease-in-out infinite;
+}
