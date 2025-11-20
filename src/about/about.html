@@ -1,12 +1,14 @@
 <article class="content-card p-4 border-pulse">
-  <div class="row align-items-center">
+  <div class="row">
     <!-- COLUNA DO TÍTULO (mobile invertido / md+ normal) -->
     <div class="col-12 col-md-6 order-2 order-md-1">
       <h2 class="section-title title-responsive">Sobre Mim</h2>
     </div>
 
     <!-- COLUNA DO AVISO (mobile invertido / md+ normal + mb-md-3) -->
-    <div class="col-12 col-md-6 d-flex justify-content-md-end mt-2 mt-md-0 order-1 order-md-2 mb-4">
+    <div
+      class="col-12 col-md-6 d-flex align-items-center justify-content-md-end mt-2 mt-md-0 order-1 order-md-2"
+    >
       <span
         class="component-notice energy-pulse notice-responsive"
         role="status"
@@ -19,30 +21,28 @@
 
   <section>
     <div class="highlight-box">
-      <h3><i class="bi bi-star-fill"></i> Disponível para Oportunidades Globais</h3>
-      <p class="mb-0">
+      <!-- <h3><i class="bi bi-star-fill"></i> Disponível para Oportunidades Globais</h3> -->
+      <p class="lead" itemprop="description">
+        Sou <strong>{{ name }}</strong
+        >, profissional híbrido com
+        <span class="code-accent">expertise única</span>
+        que une desenvolvimento front-end, analytics e gestão estratégica. Minha trajetória combina
+        <strong>habilidades técnicas avançadas</strong> com <strong>visão de negócio</strong>,
+        permitindo criar soluções tecnológicas que realmente impactam resultados.
+      </p>
+      <p class="lead" itemprop="description">
         <strong>Profissional preparado para trabalho remoto internacional</strong> com sólida
         experiência em ambientes multiculturais e colaboração distribuída. Inglês proficiente (C1),
         fuso horário flexível e histórico comprovado de entregas em projetos remotos.
       </p>
     </div>
 
-    <p class="lead" itemprop="description">
-      Sou <strong>{{ name }}</strong
-      >, profissional híbrido com
-      <span class="code-accent">expertise única</span>
-      que une desenvolvimento front-end, analytics e gestão estratégica. Minha trajetória combina
-      <strong>habilidades técnicas avançadas</strong> com <strong>visão de negócio</strong>,
-      permitindo criar soluções tecnológicas que realmente impactam resultados.
-    </p>
-
     <!-- Local onde os cards serão inseridos DEPOIS -->
     <ng-content select="[slot-cards]"></ng-content>
 
-    <p class="my-0">
-      Meu diferencial está na <strong>capacidade de transitar entre código e estratégia</strong>,
-      entendendo profundamente tanto as necessidades técnicas quanto os objetivos de negócio. Tenho
-      histórico comprovado de <span class="code-accent">entregas ágeis</span>,
+    <p class="lead" itemprop="description">
+      Foco tanto nas necessidades técnicas quanto os objetivos de negócio. Tenho histórico de
+      <span class="code-accent">entregas ágeis</span>,
       <span class="code-accent">consultoria direta com clientes</span> e
       <span class="code-accent">criação de soluções personalizadas</span> que geram valor real.
     </p>

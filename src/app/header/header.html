@@ -6,17 +6,42 @@
         ⚙️ Isto aqui é um componente Angular
       </span>
 
-      <h1 class="mt-4 mt-lg-0" itemscope itemtype="https://schema.org/Person">
-        <span itemprop="name">{{ profileData.name }}</span>
-      </h1>
-      <p class="title-main mb-3" itemprop="jobTitle">
-        {{ profileData.jobTitle }}
-      </p>
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="mt-4 mt-lg-0" itemscope itemtype="https://schema.org/Person">
+            <span itemprop="name">{{ profileData.name }}</span>
+          </h1>
+        </div>
 
-      <div class="d-flex flex-wrap gap-3 align-items-center mb-3">
-        <span class="badge badge-remote rounded-pill">
-          <i class="bi bi-globe-americas"></i> Disponível para Trabalho Remoto
-        </span>
+        <div class="col-md-12">
+          <p class="title-main mb-3" itemprop="jobTitle">
+            {{ profileData.jobTitle }}
+          </p>
+        </div>
+
+        <div class="col-md-4">
+          <div class="d-flex flex-wrap gap-3 justify-content-center my-3">
+            <span class="badge badge-remote rounded-pill">
+              <i class="bi bi-phone"></i> Mobile First
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="d-flex flex-wrap gap-3 justify-content-center my-3">
+            <span class="badge badge-remote rounded-pill">
+              <i class="bi bi-rulers"></i> Perfect Pixel
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="d-flex flex-wrap gap-3 justify-content-center my-3">
+            <span class="badge badge-remote rounded-pill">
+              <i class="bi bi-globe-americas"></i> Disponível para Trabalho Remoto
+            </span>
+          </div>
+        </div>
       </div>
 
       <div class="row g-3 mt-3">

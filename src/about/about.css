@@ -1,5 +1,9 @@
 /* Copie apenas o CSS específico da seção About */
 
+.section-title {
+  margin-bottom: 0;
+}
+
 .highlight-box {
   background: linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, rgba(138, 43, 226, 0.1) 100%);
   border: 2px solid rgba(0, 255, 255, 0.3);
@@ -36,7 +40,7 @@
   align-items: center;
   gap: 0.35rem;
 
-  background: rgba(0, 150, 255, 0.12);
+  /* background: rgba(0, 150, 255, 0.12);
   border: 1px solid rgba(0, 180, 255, 0.45);
   color: #29b6ff;
 
@@ -50,7 +54,7 @@
   text-shadow: 0 0 6px rgba(0, 180, 255, 0.75);
   box-shadow: 0 0 6px rgba(0, 180, 255, 0.45), inset 0 0 4px rgba(0, 180, 255, 0.25);
 
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px); */
 }
 
 /* --- Pulsação Neon Azul --- */

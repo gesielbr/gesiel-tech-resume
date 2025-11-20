@@ -71,10 +71,10 @@ h1 {
   background: linear-gradient(135deg, rgba(0, 255, 255, 0.2) 0%, rgba(138, 43, 226, 0.2) 100%);
   border: 2px solid var(--primary-cyan);
   color: var(--primary-cyan);
-  padding: 10px 20px;
-  font-size: 1rem;
-  font-weight: 600;
-  animation: glow 2s ease-in-out infinite;
+  padding: 12px 20px;
+  font-size: 1.2rem;
+  font-weight: 100;
+  min-width: -webkit-fill-available;
 }
 
 @keyframes glow {
