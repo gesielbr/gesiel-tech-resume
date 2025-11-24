@@ -2,9 +2,24 @@
   <div class="container">
     <div class="row d-none d-md-flex">
       <div class="col-md-12 language-switcher d-flex gap-2 justify-content-end mb-2">
-        <img src="/assets/flags/br.svg" alt="Português" class="flag-icon" />
-        <img src="/assets/flags/us.svg" alt="English" class="flag-icon" />
-        <img src="/assets/flags/es.svg" alt="Español" class="flag-icon" />
+        <img
+          src="/assets/flags/br.svg"
+          alt="Português"
+          class="flag-icon"
+          (click)="switchLang('pt')"
+        />
+        <img
+          src="/assets/flags/us.svg"
+          alt="English"
+          class="flag-icon"
+          (click)="switchLang('en')"
+        />
+        <img
+          src="/assets/flags/es.svg"
+          alt="Español"
+          class="flag-icon"
+          (click)="switchLang('es')"
+        />
       </div>
     </div>
     <div class="header-content">
@@ -24,29 +39,47 @@
           class="col-6 col-md-6 d-flex align-items-center justify-content-md-end my-2 my-md-0 order-1 order-md-2"
         >
           <span class="component-notice notice-responsive" role="status" aria-live="polite">
-            ⚡ Componente Angular
+            ⚡ {{ 'HEADER.ANGULAR_COMPONENT' | translate }}
           </span>
         </div>
         <div
           class="col-6 language-switcher d-flex gap-2 justify-content-end my-2 my-md-0 order-2 d-md-none"
         >
-          <img src="/assets/flags/br.svg" alt="Português" class="flag-icon" />
-          <img src="/assets/flags/us.svg" alt="English" class="flag-icon" />
-          <img src="/assets/flags/es.svg" alt="Español" class="flag-icon" />
+          <img
+            src="/assets/flags/br.svg"
+            alt="Português"
+            class="flag-icon"
+            (click)="switchLang('pt')"
+          />
+          <img
+            src="/assets/flags/us.svg"
+            alt="English"
+            class="flag-icon"
+            (click)="switchLang('en')"
+          />
+          <img
+            src="/assets/flags/es.svg"
+            alt="Español"
+            class="flag-icon"
+            (click)="switchLang('es')"
+          />
         </div>
       </div>
 
       <div class="row">
         <div class="col-md-12">
-          <p class="title-main mb-3" itemprop="jobTitle">
+          <!-- <p class="title-main mb-3" itemprop="jobTitle">
             {{ profileData.jobTitle }}
+          </p> -->
+          <p class="title-main mb-3" itemprop="jobTitle">
+            {{ 'HEADER.JOB_TITLE' | translate }}
           </p>
         </div>
 
         <div class="col-md-4">
           <div class="d-flex flex-wrap gap-3 justify-content-center my-3">
             <span class="badge badge-remote rounded-pill">
-              <i class="bi bi-phone"></i> Mobile First
+              <i class="bi bi-phone"></i> {{ 'HEADER.MOBILE_FIRST' | translate }}
             </span>
           </div>
         </div>
@@ -54,7 +87,7 @@
         <div class="col-md-4">
           <div class="d-flex flex-wrap gap-3 justify-content-center my-3">
             <span class="badge badge-remote rounded-pill">
-              <i class="bi bi-rulers"></i> Perfect Pixel
+              <i class="bi bi-rulers"></i> {{ 'HEADER.PERFECT_PIXEL' | translate }}
             </span>
           </div>
         </div>
@@ -62,7 +95,7 @@
         <div class="col-md-4">
           <div class="d-flex flex-wrap gap-3 justify-content-center my-3">
             <span class="badge badge-remote rounded-pill">
-              <i class="bi bi-globe-americas"></i> Trabalho Remoto ou Presencial
+              <i class="bi bi-globe-americas"></i> {{ 'HEADER.REMOTE_OR_ONSITE' | translate }}
             </span>
           </div>
         </div>

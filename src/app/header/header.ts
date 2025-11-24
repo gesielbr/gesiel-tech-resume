@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileData } from '../../models/profile-data';
 import { Profile } from '../../services/profile';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  imports: [TranslateModule],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
@@ -29,7 +30,7 @@ export class HeaderComponent implements OnInit {
   email = 'gesiel.br@gmail.com';
   phone = '+55 51 997032022'; */
 
-  constructor(private profileService: Profile) {}
+  constructor(private profileService: Profile, private translate: TranslateService) {}
 
   loadProfileData(): void {
     // 4. Chamada do serviço e Inscrição (Subscription) para receber o dado
@@ -43,5 +44,10 @@ export class HeaderComponent implements OnInit {
         console.error('Erro ao buscar dados mocados:', err);
       },
     });
+  }
+
+  switchLang(lang: string) {
+    this.translate.use(lang);
+    localStorage.setItem('lang', lang);
   }
 }
