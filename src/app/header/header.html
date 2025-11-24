@@ -1,9 +1,11 @@
 <header class="header-section py-2 py-md-5">
   <div class="container">
-    <div class="language-switcher d-flex gap-2 justify-content-end mb-2">
-      <img src="/assets/flags/br.svg" alt="Português" class="flag-icon" />
-      <img src="/assets/flags/us.svg" alt="English" class="flag-icon" />
-      <img src="/assets/flags/es.svg" alt="Español" class="flag-icon" />
+    <div class="row d-none d-md-flex">
+      <div class="col-md-12 language-switcher d-flex gap-2 justify-content-end mb-2">
+        <img src="/assets/flags/br.svg" alt="Português" class="flag-icon" />
+        <img src="/assets/flags/us.svg" alt="English" class="flag-icon" />
+        <img src="/assets/flags/es.svg" alt="Español" class="flag-icon" />
+      </div>
     </div>
     <div class="header-content">
       <!-- AVISO DO COMPONENTE -->
@@ -12,18 +14,25 @@
       </span> -->
       <!-- COLUNA DO AVISO (mobile invertido / md+ normal + mb-md-3) -->
       <!-- COLUNA DO TÍTULO (mobile invertido / md+ normal) -->
-      <div class="row">
-        <div class="col-12 col-md-6 order-2 order-md-1">
+      <div class="row d-flex align-items-center">
+        <div class="col-12 col-md-6 order-2 order-md-1 order-3">
           <h1 class="mt-lg-0" itemscope itemtype="https://schema.org/Person">
             <span itemprop="name">{{ profileData.name }}</span>
           </h1>
         </div>
         <div
-          class="col-12 col-md-6 d-flex align-items-center justify-content-md-end mt-2 mt-md-0 order-1 order-md-2"
+          class="col-6 col-md-6 d-flex align-items-center justify-content-md-end my-2 my-md-0 order-1 order-md-2"
         >
           <span class="component-notice notice-responsive" role="status" aria-live="polite">
             ⚡ Componente Angular
           </span>
+        </div>
+        <div
+          class="col-6 language-switcher d-flex gap-2 justify-content-end my-2 my-md-0 order-2 d-md-none"
+        >
+          <img src="/assets/flags/br.svg" alt="Português" class="flag-icon" />
+          <img src="/assets/flags/us.svg" alt="English" class="flag-icon" />
+          <img src="/assets/flags/es.svg" alt="Español" class="flag-icon" />
         </div>
       </div>
 
