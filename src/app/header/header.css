@@ -243,3 +243,21 @@ h1 {
   cursor: pointer;
   border-radius: 2px;
 }
+
+@media (max-width: 1200px) {
+  .badge.badge-remote.rounded-pill {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .badge.badge-remote.rounded-pill {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .badge.badge-remote.rounded-pill {
+    font-size: 1rem;
+  }
+}
