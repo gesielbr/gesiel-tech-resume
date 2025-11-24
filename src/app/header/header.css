@@ -104,21 +104,6 @@ h1 {
   position: relative;
 }
 
-/* Aviso base */
-.component-notice {
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  padding: 0.45rem 1rem;
-  border-radius: 999px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  letter-spacing: 0.4px;
-  z-index: 99;
-  color: #fff;
-  backdrop-filter: blur(4px);
-}
-
 /* ================================================== */
 /*       PULSO SUAVE — ENERGIA FLUINDO                */
 /* ================================================== */
@@ -173,5 +158,61 @@ h1 {
     padding: 0.35rem 0.7rem;
     top: -46px;
     right: 0;
+  }
+}
+
+.component-notice {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+
+  /* background: rgba(0, 150, 255, 0.12);
+  border: 1px solid rgba(0, 180, 255, 0.45);
+  color: #29b6ff;
+
+  padding: 6px 14px;
+  border-radius: 50px;
+
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.2px;
+
+  text-shadow: 0 0 6px rgba(0, 180, 255, 0.75);
+  box-shadow: 0 0 6px rgba(0, 180, 255, 0.45), inset 0 0 4px rgba(0, 180, 255, 0.25);
+
+  backdrop-filter: blur(4px); */
+}
+
+@keyframes elementPulse {
+  0% {
+    opacity: 0; /* Invisível */
+  }
+  50% {
+    opacity: 1; /* Aparece totalmente */
+  }
+  100% {
+    opacity: 0; /* Some novamente */
+  }
+}
+
+.component-notice {
+  animation: elementPulse 2s ease-in-out infinite;
+}
+
+.border-pulse {
+  border: 2px solid rgba(255, 217, 0, 1);
+  border-radius: 12px;
+  animation: borderFade 2s ease-in-out infinite;
+}
+
+@keyframes borderFade {
+  0% {
+    border-color: rgba(255, 217, 0, 0); /* invisível */
+  }
+  50% {
+    border-color: rgba(255, 217, 0, 1); /* aparece suavemente */
+  }
+  100% {
+    border-color: rgba(255, 217, 0, 0); /* some novamente */
   }
 }
