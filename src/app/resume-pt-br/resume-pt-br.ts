@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2, Inject } from '@angular/core';
+import { Component, OnInit, Renderer2, Inject, inject } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { HeaderComponent } from '../header/header';
@@ -7,6 +7,9 @@ import { SpecialtyCards } from '../../specialty-cards/specialty-cards';
 import { ExperienceComponent } from '../../experience/experience';
 import { Experience } from '../../services/experience';
 import { ExperienceModel } from '../../models/experience';
+import { Observable } from 'rxjs'; // ✅ Removido 'map' pois não é mais necessário aqui
+import { FormacaoItem, SkillCategory } from '../../models/skills';
+import { DataService } from '../../services/skills'; // Certifique-se que o nome do serviço é 'DataService'
 
 @Component({
   selector: 'app-resume-pt-br',
@@ -17,7 +20,13 @@ import { ExperienceModel } from '../../models/experience';
 })
 export class ResumePtBrComponent implements OnInit {
   title = 'Meu Currículo em Português';
-  experiences: ExperienceModel[] = []; // ✅ Use ExperienceModel
+  experiences: ExperienceModel[] = [];
+
+  // ✅ Renomeei para refletir a nova simplicidade (chama o Observable do serviço)
+  skillsGrouped$!: Observable<SkillCategory[]>;
+  formacao$!: Observable<FormacaoItem[]>;
+
+  private dataService = inject(DataService);
 
   constructor(
     private experienceService: Experience,
@@ -27,10 +36,19 @@ export class ResumePtBrComponent implements OnInit {
     @Inject(DOCUMENT) private document: Document
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loadExperiences();
     this.setSEO();
+
+    this.skillsGrouped$ = this.loadSkills();
+    this.formacao$ = this.dataService.getFormacao();
   }
+
+  loadSkills(): Observable<SkillCategory[]> {
+    return this.dataService.getSkills();
+  }
+
+  // O bloco de código map/reduce obsoleto foi removido daqui
 
   setSEO() {
     // 🔹 TITLE GLOBAL
