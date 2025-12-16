@@ -9,7 +9,7 @@ import { FormacaoItem, SkillCategory } from '../models/skills';
 @Injectable({
   providedIn: 'root',
 })
-export class DataService {
+export class Skills {
   // ⚠️ PASSO CRUCIAL: Substitua este placeholder pela sua URL de Produção na Vercel!
   private apiUrl = 'https://resume-api-seven-sigma.vercel.app/';
 

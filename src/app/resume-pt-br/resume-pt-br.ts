@@ -9,7 +9,7 @@ import { Experience } from '../../services/experience';
 import { ExperienceModel } from '../../models/experience';
 import { Observable } from 'rxjs'; // ✅ Removido 'map' pois não é mais necessário aqui
 import { FormacaoItem, SkillCategory } from '../../models/skills';
-import { DataService } from '../../services/skills'; // Certifique-se que o nome do serviço é 'DataService'
+import { Skills } from '../../services/skills'; // Certifique-se que o nome do serviço é 'DataService'
 
 @Component({
   selector: 'app-resume-pt-br',
@@ -26,7 +26,7 @@ export class ResumePtBrComponent implements OnInit {
   skillsGrouped$!: Observable<SkillCategory[]>;
   formacao$!: Observable<FormacaoItem[]>;
 
-  private dataService = inject(DataService);
+  private dataService = inject(Skills);
 
   constructor(
     private experienceService: Experience,
