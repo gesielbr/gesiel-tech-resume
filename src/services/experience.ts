@@ -14,8 +14,8 @@ export class Experience {
         company: 'Consultoria Analytics',
         jobTitle: 'Analista de Sistemas',
         startDate: '2024-09-01',
-        endDate: '',
-        currentJob: true,
+        endDate: '2025-12-01',
+        currentJob: false,
         schemaType: 'WorkExperience',
         description: [
           'Desenvolvimento e implementação de soluções analytics (GTM, GA4, Adobe Analytics, Insider) com foco em precisão de dados',
