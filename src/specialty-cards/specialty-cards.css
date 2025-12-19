@@ -4,6 +4,10 @@
   animation: borderFade 2s ease-in-out infinite;
 }
 
+.card-height{
+  min-height: 160px;
+}
+
 @keyframes borderFade {
   0% {
     border-color: rgba(255, 217, 0, 0); /* invisível */
@@ -31,3 +35,42 @@
 .component-notice {
   animation: elementPulse 2s ease-in-out infinite;
 }
+
+
+@media (max-width: 767.98px) {
+   .card-height { 
+    min-height: unset; 
+  } 
+  }
+
+
+/* estilos para telas ≥ 768px */
+@media (min-width: 768px) {
+      .card-height {
+        min-height: 234px;
+    }
+}
+
+/* estilos para telas ≥ 992px */
+@media (min-width: 992px) {
+      .card-height {
+        min-height: 260px;
+    }
+}
+
+/* estilos para telas ≥ 1200px */
+@media (min-width: 1200px) {
+      .card-height {
+        min-height: 234px;
+    }
+}
+/* estilos para telas ≥ 1400px */
+@media (min-width: 1400px) {
+      .card-height {
+        min-height: 188px;
+    }
+}
+
+
+
+
