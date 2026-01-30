@@ -4,7 +4,7 @@
   animation: borderFade 2s ease-in-out infinite;
 }
 
-.card-height{
+.card-height {
   min-height: 160px;
 }
 
@@ -36,41 +36,32 @@
   animation: elementPulse 2s ease-in-out infinite;
 }
 
-
 @media (max-width: 767.98px) {
-   .card-height { 
-    min-height: unset; 
-  } 
+  .card-height {
+    min-height: unset;
   }
+}
 
-
-/* estilos para telas ≥ 768px */
 @media (min-width: 768px) {
-      .card-height {
-        min-height: 234px;
-    }
+  .card-height {
+    min-height: 260px;
+  }
 }
 
-/* estilos para telas ≥ 992px */
 @media (min-width: 992px) {
-      .card-height {
-        min-height: 260px;
-    }
+  .card-height {
+    min-height: 260px;
+  }
 }
 
-/* estilos para telas ≥ 1200px */
 @media (min-width: 1200px) {
-      .card-height {
-        min-height: 234px;
-    }
+  .card-height {
+    min-height: 260px;
+  }
 }
-/* estilos para telas ≥ 1400px */
+
 @media (min-width: 1400px) {
-      .card-height {
-        min-height: 188px;
-    }
+  .card-height {
+    min-height: 188px;
+  }
 }
-
-
-
-

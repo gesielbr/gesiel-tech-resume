@@ -15,22 +15,22 @@
 
               <!-- NOVIDADE: @if para lidar com o Observable e o estado de carregamento/erro -->
               @if (skillsGrouped$ | async; as skills) {
-
-              <!-- CORREÇÃO AQUI: Iterar sobre 'skills' -->
-              @for (category of skills; track category.skill.id) {
-              <div class="mb-4">
-                <!-- CORREÇÃO AQUI: Acessar o nome da categoria no objeto 'skill' -->
-                <h3 class="tech-category-title">{{ category.skill.nome }}</h3>
-                <div>
-                  <!-- CORREÇÃO AQUI: Iterar sobre 'habilidades' -->
-                  @for (habilidade of category.habilidades; track habilidade.id) {
-                  <!-- CORREÇÃO AQUI: Acessar o nome da habilidade no objeto 'habilidade' -->
-                  <span class="skill-tag">{{ habilidade.nome }}</span>
-                  }
-                </div>
-              </div>
-              } } @else {
-              <p>Carregando habilidades...</p>
+                <!-- CORREÇÃO AQUI: Iterar sobre 'skills' -->
+                @for (category of skills; track category.skill.id) {
+                  <div class="mb-4">
+                    <!-- CORREÇÃO AQUI: Acessar o nome da categoria no objeto 'skill' -->
+                    <h3 class="tech-category-title">{{ category.skill.nome }}</h3>
+                    <div>
+                      <!-- CORREÇÃO AQUI: Iterar sobre 'habilidades' -->
+                      @for (habilidade of category.habilidades; track habilidade.id) {
+                        <!-- CORREÇÃO AQUI: Acessar o nome da habilidade no objeto 'habilidade' -->
+                        <span class="skill-tag">{{ habilidade.nome }}</span>
+                      }
+                    </div>
+                  </div>
+                }
+              } @else {
+                <p>Carregando habilidades...</p>
               }
 
               <!-- Seção de Idiomas (Mantida estática) -->
@@ -41,21 +41,24 @@
             </section>
           </article>
 
+          <pre>{{ formacao$ | async | json }}</pre>
+
           <article class="content-card p-4 mb-4">
             <section>
               <h2 class="section-title">Formação</h2>
 
               <!-- NOVIDADE: @if para lidar com o Observable e o estado de carregamento/erro -->
               @if (formacao$ | async; as formacoes) {
-              <!-- NOVIDADE: @for para iterar sobre a FORMAÇÃO -->
-              @for (item of formacoes; track item.id) {
-              <div class="cert-item" itemprop="alumniOf">
-                <strong>{{ item.curso }}</strong
-                ><br />
-                <small>{{ item.instituicao }} ({{ item.periodo }})</small>
-              </div>
-              } } @else {
-              <p>Carregando formação...</p>
+                <!-- NOVIDADE: @for para iterar sobre a FORMAÇÃO -->
+                @for (item of formacoes; track item.id) {
+                  <div class="cert-item" itemprop="alumniOf">
+                    <strong>{{ item.curso }}</strong
+                    ><br />
+                    <small>{{ item.instituicao }} ({{ item.periodo }})</small>
+                  </div>
+                }
+              } @else {
+                <p>Carregando formação...</p>
               }
             </section>
           </article>
