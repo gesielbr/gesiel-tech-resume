@@ -19,9 +19,9 @@ export class Experience {
         schemaType: 'WorkExperience',
         description: [
           'Desenvolvimento e implementação de soluções analytics (GTM, GA4, Adobe Analytics, Insider) com foco em precisão de dados',
-          'Liderança de projetos ágeis com squads multidisciplinares, utilizando Kanban e Sprints',
+          'Atuação técnica em times ágeis, colaborando com squads multidisciplinares e utilizando práticas como Kanban e Sprints',
           'Configuração e validação de eventos de mensuração para geração de insights acionáveis',
-          'Gestão estratégica de KPIs, otimização de prazos e recursos alinhados aos objetivos de negócio',
+          'Implementação e acompanhamento técnico de KPIs, contribuindo para otimização de prazos, recursos e decisões de negócio',
         ],
       },
       {
@@ -33,11 +33,12 @@ export class Experience {
         currentJob: false,
         schemaType: 'WorkExperience',
         description: [
-          'Desenvolvimento completo de aplicações web em Angular seguindo metodologias ágeis',
-          'Criação de webcomponents reutilizáveis garantindo modularidade e manutenção facilitada',
-          'Consultoria direta com clientes, conduzindo reuniões e propondo soluções personalizadas',
-          'Colaboração ativa com designers para criar interfaces intuitivas focadas em UX',
-          'Identificação e correção de bugs garantindo estabilidade das aplicações',
+          'Desenvolvimento de aplicações web em Angular, com foco em componentização, organização de módulos, uso de services e integração com APIs REST',
+          'Criação de componentes reutilizáveis seguindo boas práticas de arquitetura front-end, visando escalabilidade e fácil manutenção',
+          'Atuação técnica junto a clientes internos para levantamento de requisitos, refinamento de demandas e definição de soluções',
+          'Parceria com times de design na implementação de interfaces responsivas, acessíveis e centradas no usuário',
+          'Correção de bugs e melhorias contínuas, garantindo estabilidade, performance e qualidade do código',
+          'Criação de biblioteca própria de componentes (Design System) reutilizáveis, garantindo padronização visual, consistência de UX',
         ],
       },
       {

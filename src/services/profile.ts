@@ -11,9 +11,11 @@ export class Profile {
   private mockProfileData: ProfileData = {
     name: 'Gesiel Souza Oliveira',
     jobTitle: 'Analista de Sistemas | Desenvolvedor Front-end',
-    location: 'São Pedro da Aldeia, Rio de Janeiro - Brasil',
+    city: 'São Pedro da Aldeia',
+    state: 'Rio de Janeiro',
+    countryCode: 'BR',
     email: 'gesiel.br@gmail.com',
-    phone: '+55 51 997032022',
+    phone: '+55 51 99703-2022',
   };
 
   constructor() {}
