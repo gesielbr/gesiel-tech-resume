@@ -6,5 +6,18 @@
     "JOB_TITLE": "Desarrollador Front-end Angular",
     "ANGULAR_COMPONENT": "Componente de Angular",
     "COUNTRY": "Brasil"
+  },
+
+  "ABOUT": {
+    "TITLE": "Sobre Mí",
+    "TEXT_1": "Especialista en",
+    "FRONT_END": "Front-End Angular",
+    "TEXT_2": "con sólida experiencia en",
+    "WEB_ANALYTICS": "Web Analytics (GA4 y GTM)",
+    "TEXT_3": "Experiencia en el desarrollo de interfaces escalables, arquitectura basada en componentes, seguimiento mediante",
+    "JAVASCRIPT": "JavaScript",
+    "TEXT_4": "y medición orientada a resultados. Base en",
+    "FULL_STACK": "Full Stack",
+    "TEXT_5": "que conecta front-end, datos y negocio para generar impacto real."
   }
 }

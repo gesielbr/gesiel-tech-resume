@@ -2,7 +2,9 @@
   <div class="row">
     <!-- COLUNA DO TÍTULO (mobile invertido / md+ normal) -->
     <div class="col-12 col-md-6 order-2 order-md-1">
-      <h2 class="section-title title-responsive">Sobre Mim</h2>
+      <h2 class="section-title title-responsive">
+        {{ 'ABOUT.TITLE' | translate }}
+      </h2>
     </div>
 
     <!-- COLUNA DO AVISO (mobile invertido / md+ normal + mb-md-3) -->
@@ -23,12 +25,17 @@
     <div class="highlight-box">
       <!-- <h3><i class="bi bi-star-fill"></i> Disponível para Oportunidades Globais</h3> -->
       <p class="lead" itemprop="description">
-        Profissional especialista em <span class="code-accent">Front-End Angular</span> com forte
-        atuação em <span class="code-accent"> Web Analytics (GA4 e GTM) </span> . Experiência em
-        desenvolvimento de interfaces escaláveis, arquitetura de componentes, rastreamento via
-        JavaScript e mensuração orientada a resultados.
-        <span class="code-accent">Base em Full Stack</span> que conecta front-end, dados e negócio
-        para gerar impacto real.
+        {{ 'ABOUT.TEXT_1' | translate }}
+        <span class="code-accent">{{ 'ABOUT.FRONT_END' | translate }}</span
+        >,
+        {{ 'ABOUT.TEXT_2' | translate }}
+        <span class="code-accent">{{ 'ABOUT.WEB_ANALYTICS' | translate }}</span
+        >.
+        {{ 'ABOUT.TEXT_3' | translate }}
+        <span class="code-accent">{{ 'ABOUT.JAVASCRIPT' | translate }}</span>
+        {{ 'ABOUT.TEXT_4' | translate }}
+        <span class="code-accent">{{ 'ABOUT.FULL_STACK' | translate }}</span>
+        {{ 'ABOUT.TEXT_5' | translate }}
       </p>
 
       <!-- <p class="lead" itemprop="description">
