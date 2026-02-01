@@ -9,6 +9,7 @@
   },
 
   "ABOUT": {
+    "ANGULAR_COMPONENT": "Componente de Angular",
     "TITLE": "Sobre Mí",
     "TEXT_1": "Especialista en",
     "FRONT_END": "Front-End Angular",
