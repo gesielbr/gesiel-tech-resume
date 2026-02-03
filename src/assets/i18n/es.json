@@ -2,7 +2,7 @@
   "HEADER": {
     "MOBILE_FIRST": "Primero en el Móvil",
     "PERFECT_PIXEL": "Pixel Perfecto",
-    "REMOTE_OR_ONSITE": "Trabajo Remoto o Presencial",
+    "REMOTE_OR_ONSITE": "i18n y Componentes Escalables",
     "JOB_TITLE": "Desarrollador Front-end Angular",
     "ANGULAR_COMPONENT": "Componente de Angular",
     "COUNTRY": "Brasil"
@@ -20,5 +20,40 @@
     "TEXT_4": "y medición orientada a resultados. Base en",
     "FULL_STACK": "Full Stack",
     "TEXT_5": "que conecta front-end, datos y negocio para generar impacto real."
+  },
+
+  "SPECIALTIES": {
+    "ANGULAR_COMPONENT": "Componente de Angular",
+    "TITLE": "Especialidades Técnicas",
+
+    "FRONT_END": {
+      "TITLE": "Especialista en Front-End (Angular)",
+      "TEXT_1": "Desarrollo de aplicaciones en Angular con enfoque en arquitectura de componentes,",
+      "PERFECT_PIXEL": "pixel perfecto",
+      "TEXT_2": ", usabilidad, accesibilidad, rendimiento e integración con soluciones de Web Analytics."
+    },
+    "BACK_END": {
+      "TITLE": "Back-End",
+      "TEXT": "Desarrollo y consumo de APIs, integración con bases de datos y servicios, apoyando reglas de negocio, escalabilidad de las aplicaciones y la recolección estructurada de datos."
+    },
+
+    "WEB_ANALYTICS": {
+      "TITLE": "Web Analytics & Tracking",
+      "TEXT_1": "Implementación de GA4, GTM y seguimiento basado en JavaScript, con integración de",
+      "MEDIA_PIXELS": "píxeles de medios",
+      "TEXT_2": ", planificación y",
+      "STANDARDIZATION": "estandarización",
+      "TEXT_3": " de eventos,",
+      "ADVANCED_DEBUG": "depuración avanzada",
+      "TEXT_4": ", pruebas y garantía de la calidad de los datos."
+    },
+    "AGILE": {
+      "TITLE": "Metodologías Ágiles",
+      "TEXT_1": "Trabajo colaborativo en",
+      "AGILE_TEAMS": "equipos ágiles",
+      "TEXT_2": ", con un fuerte sentido de responsabilidad, comunicación clara entre áreas técnicas y de negocio, apoyo en la definición de prioridades,",
+      "CONTINUOUS_IMPROVEMENT": "mejora continua",
+      "TEXT_3": " de los procesos y enfoque en entregar valor real al usuario y a la empresa."
+    }
   }
 }

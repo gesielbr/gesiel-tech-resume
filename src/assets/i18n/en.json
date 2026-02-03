@@ -2,7 +2,7 @@
   "HEADER": {
     "MOBILE_FIRST": "Mobile First",
     "PERFECT_PIXEL": "Perfect Pixel",
-    "REMOTE_OR_ONSITE": "Remote or On-site Work",
+    "REMOTE_OR_ONSITE": "i18n & Scalable Components",
     "JOB_TITLE": "Angular Front-end Developer",
     "ANGULAR_COMPONENT": "Angular Component",
     "COUNTRY": "Brazil"
@@ -20,5 +20,41 @@
     "TEXT_4": "Full Stack foundation that connects front-end, data, and business to",
     "FULL_STACK": "Full Stack",
     "TEXT_5": "deliver real impact."
+  },
+
+  "SPECIALTIES": {
+    "ANGULAR_COMPONENT": "Angular Component",
+    "TITLE": "Technical Specialties",
+
+    "FRONT_END": {
+      "TITLE": "Front-End Specialist (Angular)",
+      "TEXT_1": "Angular application development focused on component architecture,",
+      "PERFECT_PIXEL": "pixel-perfect UI",
+      "TEXT_2": ", usability, accessibility, performance, and integration with Web Analytics solutions."
+    },
+
+    "BACK_END": {
+      "TITLE": "Back-End",
+      "TEXT": "Development and consumption of APIs, database and service integrations, supporting business rules, application scalability, and structured data collection."
+    },
+
+    "WEB_ANALYTICS": {
+      "TITLE": "Web Analytics & Tracking",
+      "TEXT_1": "Implementation of GA4, GTM, and JavaScript-based tracking, including integration of",
+      "MEDIA_PIXELS": "media pixels",
+      "TEXT_2": ", event planning and",
+      "STANDARDIZATION": "standardization",
+      "TEXT_3": ",",
+      "ADVANCED_DEBUG": "advanced debugging",
+      "TEXT_4": ", testing, and data quality assurance."
+    },
+    "AGILE": {
+      "TITLE": "Agile Methodologies",
+      "TEXT_1": "Collaborative work in",
+      "AGILE_TEAMS": "agile teams",
+      "TEXT_2": ", with a strong sense of ownership, clear communication between technical and business areas, support in priority definition,",
+      "CONTINUOUS_IMPROVEMENT": "continuous improvement",
+      "TEXT_3": " of processes and a focus on delivering real value to users and the company."
+    }
   }
 }

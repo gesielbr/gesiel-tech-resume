@@ -2,7 +2,7 @@
   "HEADER": {
     "MOBILE_FIRST": "Primeiro no Celular",
     "PERFECT_PIXEL": "Pixel Perfeito",
-    "REMOTE_OR_ONSITE": "Trabalho Remoto ou Presencial",
+    "REMOTE_OR_ONSITE": "i18n & Componentes Escaláveis",
     "JOB_TITLE": "Desenvolvedor Front-end Angular",
     "ANGULAR_COMPONENT": "Componente Angular",
     "COUNTRY": "Brasil"
@@ -20,5 +20,42 @@
     "TEXT_4": "e mensuração orientada a resultados. Base em",
     "FULL_STACK": "Full Stack",
     "TEXT_5": "que conecta front-end, dados e negócio para gerar impacto real."
+  },
+
+  "SPECIALTIES": {
+    "TITLE": "Especialidades Técnicas",
+    "ANGULAR_COMPONENT": "Componente Angular",
+
+    "FRONT_END": {
+      "TITLE": "Especialista em Front-End (Angular)",
+      "TEXT_1": "Desenvolvimento de aplicações em Angular com foco em arquitetura de componentes,",
+      "PERFECT_PIXEL": "pixel perfeito",
+      "TEXT_2": "usabilidade, acessibilidade, performance e integração com soluções de Web Analytics."
+    },
+
+    "BACK_END": {
+      "TITLE": "Back-End",
+      "TEXT": "Desenvolvimento e consumo de APIs, integrações com bancos de dados e serviços, apoiando regras de negócio, escalabilidade das aplicações e a coleta estruturada de dados."
+    },
+
+    "WEB_ANALYTICS": {
+      "TITLE": "Web Analytics & Tracking",
+      "TEXT_1": "Implementação de GA4, GTM e rastreamento via JavaScript, com integração de",
+      "MEDIA_PIXELS": "pixels de mídia",
+      "TEXT_2": ", planejamento e",
+      "STANDARDIZATION": "padronização",
+      "TEXT_3": " de eventos,",
+      "ADVANCED_DEBUG": "debug avançado",
+      "TEXT_4": ", testes e garantia da qualidade dos dados."
+    },
+
+    "AGILE": {
+      "TITLE": "Metodologias Ágeis",
+      "TEXT_1": "Atuação colaborativa em",
+      "AGILE_TEAMS": "times ágeis",
+      "TEXT_2": ", com forte senso de responsabilidade, comunicação clara com áreas técnicas e de negócio, apoio na definição de prioridades,",
+      "CONTINUOUS_IMPROVEMENT": "melhoria contínua",
+      "TEXT_3": " dos processos e foco em entregar valor real ao usuário e à empresa."
+    }
   }
 }
