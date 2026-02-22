@@ -5,7 +5,7 @@ import { HeaderComponent } from '../header/header';
 import { About } from '../../about/about';
 import { SpecialtyCards } from '../../specialty-cards/specialty-cards';
 import { ExperienceComponent } from '../../experience/experience';
-import { Experience } from '../../services/experience';
+import { ExperienceService } from '../../services/experience';
 import { ExperienceModel } from '../../models/experience';
 import { Observable } from 'rxjs'; // ✅ Removido 'map' pois não é mais necessário aqui
 import { FormacaoItem, SkillCategory } from '../../models/skills';
@@ -29,11 +29,11 @@ export class ResumePtBrComponent implements OnInit {
   private dataService = inject(Skills);
 
   constructor(
-    private experienceService: Experience,
+    private experienceService: ExperienceService,
     private titleService: Title,
     private metaService: Meta,
     private renderer: Renderer2,
-    @Inject(DOCUMENT) private document: Document
+    @Inject(DOCUMENT) private document: Document,
   ) {}
 
   ngOnInit(): void {
@@ -53,7 +53,7 @@ export class ResumePtBrComponent implements OnInit {
   setSEO() {
     // 🔹 TITLE GLOBAL
     this.titleService.setTitle(
-      'Gesiel Souza Oliveira | Front-end Developer (Angular) & Web Analytics Expert'
+      'Gesiel Souza Oliveira | Front-end Developer (Angular) & Web Analytics Expert',
     );
 
     // 🔹 DESCRIPTIONS multilíngues (PT + EN)
