@@ -9,26 +9,42 @@
     <h2 class="section-title mb-3">Experiência Profissional</h2>
 
     @for (exp of experiences; track exp.id) {
-    <div class="experience-card" itemscope [attr.itemtype]="'https://schema.org/' + exp.schemaType">
-      <div class="company-name" [attr.itemprop]="'employer'">{{ exp.company }}</div>
-      <div class="job-title" [attr.itemprop]="'jobTitle'">{{ exp.jobTitle }}</div>
+      <div
+        class="experience-card"
+        itemscope
+        [attr.itemtype]="'https://schema.org/' + exp.schema_type"
+      >
+        <div class="company-name" [attr.itemprop]="'employer'">{{ exp.company }}</div>
+        <div class="job-title" [attr.itemprop]="'jobTitle'">{{ exp.job_title }}</div>
 
-      <div class="period mb-3">
-        <i class="bi bi-calendar-event"></i>
-        <time [attr.datetime]="exp.startDate">{{ formatDate(exp.startDate) }}</time>
-        - @if (exp.currentJob) {
-        <span>Presente</span>
-        } @else {
-        <time [attr.datetime]="exp.endDate">{{ formatDate(exp.endDate) }}</time>
-        }
+        <div class="period mb-3">
+          <i class="bi bi-calendar-event"></i>
+
+          <time [attr.datetime]="exp.start_date">
+            {{ formatDate(exp.start_date) }}
+          </time>
+
+          -
+
+          @if (exp.current_job) {
+            <span>Presente</span>
+          } @else {
+            @if (exp.end_date) {
+              <time [attr.datetime]="exp.end_date">
+                {{ formatDate(exp.end_date) }}
+              </time>
+            } @else {
+              <span>—</span>
+            }
+          }
+        </div>
+
+        <ul [attr.itemprop]="'description'">
+          @for (item of exp.description; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
       </div>
-
-      <ul [attr.itemprop]="'description'">
-        @for (item of exp.description; track item) {
-        <li>{{ item }}</li>
-        }
-      </ul>
-    </div>
     }
   </section>
 </article>
