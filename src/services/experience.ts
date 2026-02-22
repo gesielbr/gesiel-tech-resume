@@ -11,13 +11,10 @@ export class Experience {
   private http = inject(HttpClient);
 
   getExperiences(): Observable<ExperienceModel[]> {
-    return this.http.get<ExperienceModel[]>(`${this.baseUrl}/api/experiences`).pipe(
-      tap((data: ExperienceModel[]) => {
-        console.log(
-          '✅ Dados de Experiences recebidos da VERCEL com sucesso:',
-          JSON.stringify(data, null, 2),
-        );
-      }),
+    const url = `${this.baseUrl}/api/experiences?ts=${Date.now()}`;
+
+    return this.http.get<ExperienceModel[]>(url).pipe(
+      tap((data) => console.log('✅ Experiences:', data)),
       catchError((err) => throwError(() => err)),
     );
   }
