@@ -46,7 +46,7 @@ export class HeaderComponent implements OnInit {
       },
       error: (err) => {
         // Em um cenário real, trataria o erro da API aqui
-        console.error('Erro ao buscar dados mocados:', err);
+        console.error('Erro:', err);
       },
     });
   }

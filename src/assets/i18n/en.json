@@ -56,5 +56,11 @@
       "CONTINUOUS_IMPROVEMENT": "continuous improvement",
       "TEXT_3": " of processes and a focus on delivering real value to users and the company."
     }
+  },
+
+  "EXPERIENCE": {
+    "ANGULAR_COMPONENT": "Angular Component",
+    "TITLE": "Professional Experience",
+    "PRESENT": "Present"
   }
 }

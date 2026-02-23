@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2, Inject, inject } from '@angular/core';
+import { Component, OnInit, Renderer2, Inject, inject, ChangeDetectorRef } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { HeaderComponent } from '../header/header';
@@ -10,6 +10,9 @@ import { ExperienceModel } from '../../models/experience';
 import { Observable } from 'rxjs'; // ✅ Removido 'map' pois não é mais necessário aqui
 import { FormacaoItem, SkillCategory } from '../../models/skills';
 import { Skills } from '../../services/skills'; // Certifique-se que o nome do serviço é 'DataService'
+import { TranslateService } from '@ngx-translate/core';
+import { PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-resume-pt-br',
@@ -22,6 +25,8 @@ export class ResumePtBrComponent implements OnInit {
   title = 'Meu Currículo em Português';
   experiences: ExperienceModel[] = [];
 
+  currentLang = 'pt';
+
   // ✅ Renomeei para refletir a nova simplicidade (chama o Observable do serviço)
   skillsGrouped$!: Observable<SkillCategory[]>;
   formacao$!: Observable<FormacaoItem[]>;
@@ -33,13 +38,29 @@ export class ResumePtBrComponent implements OnInit {
     private titleService: Title,
     private metaService: Meta,
     private renderer: Renderer2,
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private translate: TranslateService,
+    private cdr: ChangeDetectorRef,
     @Inject(DOCUMENT) private document: Document,
   ) {}
 
   ngOnInit(): void {
-    this.loadExperiences();
-    this.setSEO();
+    let savedLang = 'pt';
 
+    if (isPlatformBrowser(this.platformId)) {
+      savedLang = localStorage.getItem('lang') || 'pt';
+    }
+
+    this.translate.setDefaultLang('pt');
+    this.translate.use(savedLang);
+
+    this.loadExperiences();
+
+    this.translate.onLangChange.subscribe(() => {
+      this.loadExperiences();
+    });
+
+    this.setSEO();
     this.skillsGrouped$ = this.loadSkills();
     this.formacao$ = this.dataService.getFormacao();
   }
@@ -153,9 +174,12 @@ export class ResumePtBrComponent implements OnInit {
   }
 
   loadExperiences() {
-    this.experienceService.getExperiences().subscribe({
+    const lang = this.translate.currentLang || this.translate.defaultLang || 'pt';
+
+    this.experienceService.getExperiences(lang).subscribe({
       next: (data) => {
-        this.experiences = data;
+        this.experiences = [...data]; // ✅ nova referência
+        this.cdr.detectChanges(); // ✅ força render agora
       },
       error: (error) => {
         console.error('Erro ao carregar experiências:', error);

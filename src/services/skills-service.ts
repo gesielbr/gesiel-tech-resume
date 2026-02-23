@@ -21,10 +21,7 @@ export class Skills {
     return this.http.get<SkillCategory[]>(`${this.apiUrl}/api/skills`).pipe(
       // Usamos 'tap' para inspecionar os dados no console do navegador (F12)
       tap((data) => {
-        console.log(
-          '✅ Dados de Skills recebidos da VERCEL com sucesso:',
-          JSON.stringify(data, null, 2),
-        );
+        console.log('✅ Dados de Skills recebidos da VERCEL com sucesso:', data);
       }),
     );
   }

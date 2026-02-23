@@ -57,5 +57,11 @@
       "CONTINUOUS_IMPROVEMENT": "melhoria contínua",
       "TEXT_3": " dos processos e foco em entregar valor real ao usuário e à empresa."
     }
+  },
+
+  "EXPERIENCE": {
+    "ANGULAR_COMPONENT": "Componente Angular",
+    "TITLE": "Experiência Profissional",
+    "PRESENT": "Presente"
   }
 }

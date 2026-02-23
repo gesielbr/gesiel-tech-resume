@@ -1,12 +1,12 @@
 <article class="content-card p-4 border-pulse">
   <div class="col-12 mb-3">
-    <span class="component-notice energy-pulse" role="status" aria-live="polite">
-      ⚡ Componente Angular
+    <span class="component-notice energy-pulse">
+      ⚡ {{ 'EXPERIENCE.ANGULAR_COMPONENT' | translate }}
     </span>
   </div>
 
   <section>
-    <h2 class="section-title mb-3">Experiência Profissional</h2>
+    <h2 class="section-title mb-3">{{ 'EXPERIENCE.TITLE' | translate }}</h2>
 
     @for (exp of experiences; track exp.id) {
       <div
@@ -15,7 +15,7 @@
         [attr.itemtype]="'https://schema.org/' + exp.schema_type"
       >
         <div class="company-name" [attr.itemprop]="'employer'">{{ exp.company }}</div>
-        <div class="job-title" [attr.itemprop]="'jobTitle'">{{ exp.job_title }}</div>
+        <div class="job-title" [attr.itemprop]="'jobTitle'">{{ getJobTitle(exp) }}</div>
 
         <div class="period mb-3">
           <i class="bi bi-calendar-event"></i>
@@ -27,7 +27,7 @@
           -
 
           @if (exp.current_job) {
-            <span>Presente</span>
+            <span>{{ 'EXPERIENCE.PRESENT' | translate }}</span>
           } @else {
             @if (exp.end_date) {
               <time [attr.datetime]="exp.end_date">
@@ -40,7 +40,7 @@
         </div>
 
         <ul [attr.itemprop]="'description'">
-          @for (item of exp.description; track item) {
+          @for (item of getDescription(exp); track item) {
             <li>{{ item }}</li>
           }
         </ul>
