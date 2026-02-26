@@ -7,39 +7,9 @@
   <main class="container my-5">
     <div class="row g-4">
       <!-- Sidebar -->
-      <aside class="col-lg-4">
+      <aside class="col-lg-4" aria-label="Sidebar do currículo">
         <div class="sidebar-sticky">
-          <article class="content-card p-4 mb-4">
-            <section>
-              <h2 class="section-title">Tech Stack</h2>
-
-              <!-- NOVIDADE: @if para lidar com o Observable e o estado de carregamento/erro -->
-              @if (skillsGrouped$ | async; as skills) {
-                <!-- CORREÇÃO AQUI: Iterar sobre 'skills' -->
-                @for (category of skills; track category.skill.id) {
-                  <div class="mb-4">
-                    <!-- CORREÇÃO AQUI: Acessar o nome da categoria no objeto 'skill' -->
-                    <h3 class="tech-category-title">{{ category.skill.nome }}</h3>
-                    <div>
-                      <!-- CORREÇÃO AQUI: Iterar sobre 'habilidades' -->
-                      @for (habilidade of category.habilidades; track habilidade.id) {
-                        <!-- CORREÇÃO AQUI: Acessar o nome da habilidade no objeto 'habilidade' -->
-                        <span class="skill-tag">{{ habilidade.nome }}</span>
-                      }
-                    </div>
-                  </div>
-                }
-              } @else {
-                <p>Carregando habilidades...</p>
-              }
-
-              <!-- Seção de Idiomas (Mantida estática) -->
-              <div>
-                <h3 class="tech-category-title">Idiomas</h3>
-                <div class="cert-item"><strong>Inglês</strong> - C1 Level (Proficiente)</div>
-              </div>
-            </section>
-          </article>
+          <app-skills [skillsGrouped]="skillsGrouped$ | async"></app-skills>
 
           <article class="content-card p-4 mb-4">
             <section>

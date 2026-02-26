@@ -1,23 +1,32 @@
-import { Component, OnInit, Renderer2, Inject, inject, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Renderer2, Inject, inject, DestroyRef } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
-import { CommonModule, DOCUMENT } from '@angular/common';
+import { CommonModule, DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { HeaderComponent } from '../header/header';
 import { About } from '../../about/about';
 import { SpecialtyCards } from '../../specialty-cards/specialty-cards';
 import { ExperienceComponent } from '../../experience/experience';
 import { ExperienceService } from '../../services/experience';
 import { ExperienceModel } from '../../models/experience';
-import { Observable } from 'rxjs'; // ✅ Removido 'map' pois não é mais necessário aqui
 import { FormacaoItem, SkillCategory } from '../../models/skills';
-import { Skills } from '../../services/skills'; // Certifique-se que o nome do serviço é 'DataService'
 import { TranslateService } from '@ngx-translate/core';
 import { PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { SkillsComponent } from '../skills/skills';
+import { Skills } from '../../services/skills';
+
+import { Observable, map, startWith, switchMap, distinctUntilChanged } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-resume-pt-br',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, About, SpecialtyCards, ExperienceComponent],
+  imports: [
+    CommonModule,
+    HeaderComponent,
+    About,
+    SpecialtyCards,
+    ExperienceComponent,
+    SkillsComponent,
+  ],
   templateUrl: './resume-pt-br.html',
   styleUrl: './resume-pt-br.css',
 })
@@ -25,13 +34,11 @@ export class ResumePtBrComponent implements OnInit {
   title = 'Meu Currículo em Português';
   experiences: ExperienceModel[] = [];
 
-  currentLang = 'pt';
-
-  // ✅ Renomeei para refletir a nova simplicidade (chama o Observable do serviço)
   skillsGrouped$!: Observable<SkillCategory[]>;
   formacao$!: Observable<FormacaoItem[]>;
 
   private dataService = inject(Skills);
+  private destroyRef = inject(DestroyRef);
 
   constructor(
     private experienceService: ExperienceService,
@@ -40,7 +47,6 @@ export class ResumePtBrComponent implements OnInit {
     private renderer: Renderer2,
     @Inject(PLATFORM_ID) private platformId: Object,
     private translate: TranslateService,
-    private cdr: ChangeDetectorRef,
     @Inject(DOCUMENT) private document: Document,
   ) {}
 
@@ -54,22 +60,35 @@ export class ResumePtBrComponent implements OnInit {
     this.translate.setDefaultLang('pt');
     this.translate.use(savedLang);
 
-    this.loadExperiences();
-
-    this.translate.onLangChange.subscribe(() => {
-      this.loadExperiences();
-    });
-
     this.setSEO();
-    this.skillsGrouped$ = this.loadSkills();
+
+    // ✅ EXPERIÊNCIAS: reativo + sem duplicar requisição na inicialização
+    this.translate.onLangChange
+      .pipe(
+        startWith({ lang: this.translate.currentLang || savedLang } as any),
+        map((e: any) => (e.lang || savedLang) as string),
+        distinctUntilChanged(),
+        switchMap((lang) => this.experienceService.getExperiences(lang)),
+        takeUntilDestroyed(this.destroyRef),
+      )
+      .subscribe({
+        next: (data) => {
+          this.experiences = data;
+        },
+        error: (error) => console.error('Erro ao carregar experiências:', error),
+      });
+
+    // ✅ SKILLS: segue teu fluxo reativo por idioma
+    this.skillsGrouped$ = this.translate.onLangChange.pipe(
+      startWith({ lang: this.translate.currentLang || savedLang } as any),
+      map((e: any) => (e.lang || savedLang) as 'pt' | 'en' | 'es'),
+      distinctUntilChanged(),
+      switchMap((lang) => this.dataService.getSkills(lang)),
+    );
+
+    // ✅ FORMAÇÃO: não depende de idioma
     this.formacao$ = this.dataService.getFormacao();
   }
-
-  loadSkills(): Observable<SkillCategory[]> {
-    return this.dataService.getSkills();
-  }
-
-  // O bloco de código map/reduce obsoleto foi removido daqui
 
   setSEO() {
     // 🔹 TITLE GLOBAL
@@ -171,19 +190,5 @@ export class ResumePtBrComponent implements OnInit {
     script.type = 'application/ld+json';
     script.text = JSON.stringify(schema);
     this.renderer.appendChild(this.document.head, script);
-  }
-
-  loadExperiences() {
-    const lang = this.translate.currentLang || this.translate.defaultLang || 'pt';
-
-    this.experienceService.getExperiences(lang).subscribe({
-      next: (data) => {
-        this.experiences = [...data]; // ✅ nova referência
-        this.cdr.detectChanges(); // ✅ força render agora
-      },
-      error: (error) => {
-        console.error('Erro ao carregar experiências:', error);
-      },
-    });
   }
 }

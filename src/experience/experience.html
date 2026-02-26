@@ -8,20 +8,20 @@
   <section>
     <h2 class="section-title mb-3">{{ 'EXPERIENCE.TITLE' | translate }}</h2>
 
-    @for (exp of experiences; track exp.id) {
+    @for (exp of viewExperiences; track exp.id) {
       <div
         class="experience-card"
         itemscope
         [attr.itemtype]="'https://schema.org/' + exp.schema_type"
       >
         <div class="company-name" [attr.itemprop]="'employer'">{{ exp.company }}</div>
-        <div class="job-title" [attr.itemprop]="'jobTitle'">{{ getJobTitle(exp) }}</div>
+        <div class="job-title" [attr.itemprop]="'jobTitle'">{{ exp.view_job_title }}</div>
 
         <div class="period mb-3">
           <i class="bi bi-calendar-event"></i>
 
           <time [attr.datetime]="exp.start_date">
-            {{ formatDate(exp.start_date) }}
+            {{ exp.view_start }}
           </time>
 
           -
@@ -31,7 +31,7 @@
           } @else {
             @if (exp.end_date) {
               <time [attr.datetime]="exp.end_date">
-                {{ formatDate(exp.end_date) }}
+                {{ exp.view_end }}
               </time>
             } @else {
               <span>—</span>
@@ -40,7 +40,7 @@
         </div>
 
         <ul [attr.itemprop]="'description'">
-          @for (item of getDescription(exp); track item) {
+          @for (item of exp.view_description; track $index) {
             <li>{{ item }}</li>
           }
         </ul>

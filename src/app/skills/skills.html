@@ -1,0 +1,26 @@
+<article class="content-card p-4 mb-4">
+  <section>
+    <h2 class="section-title">Tech Stack</h2>
+
+    @if (skillsGrouped; as grouped) {
+      @for (category of grouped; track category.skill.id) {
+        <div class="mb-4">
+          <h3 class="tech-category-title">{{ category.skill.nome }}</h3>
+
+          <ul class="skill-list" role="list">
+            @for (habilidade of category.habilidades; track habilidade.id) {
+              <li class="skill-tag">{{ habilidade.nome }}</li>
+            }
+          </ul>
+        </div>
+      }
+    } @else {
+      <p>Carregando habilidades...</p>
+    }
+
+    <div>
+      <h3 class="tech-category-title">Idiomas</h3>
+      <div class="cert-item"><strong>Inglês</strong> - C1 Level (Proficiente)</div>
+    </div>
+  </section>
+</article>

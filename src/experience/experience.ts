@@ -1,9 +1,16 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ExperienceModel } from '../models/experience';
 
 type Lang = 'pt' | 'en' | 'es';
+
+type ExperienceView = ExperienceModel & {
+  view_job_title: string;
+  view_description: string[];
+  view_start: string;
+  view_end: string;
+};
 
 @Component({
   selector: 'app-experience',
@@ -11,63 +18,84 @@ type Lang = 'pt' | 'en' | 'es';
   imports: [CommonModule, TranslateModule],
   templateUrl: './experience.html',
   styleUrl: './experience.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ExperienceComponent {
+export class ExperienceComponent implements OnChanges {
   @Input() experiences: ExperienceModel[] = [];
+
+  // ✅ o template deve usar isso
+  viewExperiences: ExperienceView[] = [];
 
   constructor(private translate: TranslateService) {}
 
-  /** Pega o idioma atual com fallback seguro */
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['experiences']) {
+      this.viewExperiences = this.experiences.map((exp) => this.toView(exp));
+    }
+  }
+
+  /** Idioma atual com fallback seguro (calculado 1x por conversão) */
   private getLang(): Lang {
     const lang = (this.translate.currentLang || this.translate.defaultLang || 'pt').toLowerCase();
     return lang === 'en' || lang === 'es' || lang === 'pt' ? (lang as Lang) : 'pt';
   }
 
-  /**
-   * Escolhe a descrição correta quando o back envia
-   * description_en / description_es além de description (pt).
-   */
-  getDescription(exp: any): string[] {
-    const lang = this.getLang();
+  private clean(v: any): string {
+    return typeof v === 'string' ? v.replace(/^"+|"+$/g, '').trim() : '';
+  }
 
+  private pickJobTitle(exp: any, lang: Lang): string {
+    if (lang === 'en') return this.clean(exp?.job_title_en) || this.clean(exp?.job_title) || '';
+    if (lang === 'es') return this.clean(exp?.job_title_es) || this.clean(exp?.job_title) || '';
+    return this.clean(exp?.job_title) || '';
+  }
+
+  private pickDescription(exp: any, lang: Lang): string[] {
     if (lang === 'en' && Array.isArray(exp?.description_en)) return exp.description_en;
     if (lang === 'es' && Array.isArray(exp?.description_es)) return exp.description_es;
-
     return Array.isArray(exp?.description) ? exp.description : [];
   }
 
-  /**
-   * Mesma ideia para o job title
-   * (alguns seus registros estão vazios em en/es, então cai no pt).
-   */
-  getJobTitle(exp: any): string {
-    const lang = this.getLang();
+  private formatMonthYear(dateString: string | null | undefined, lang: Lang): string {
+    if (!dateString) return '';
 
-    const clean = (v: any) => (typeof v === 'string' ? v.replace(/^"+|"+$/g, '').trim() : '');
-
-    if (lang === 'en') return clean(exp?.job_title_en) || clean(exp?.job_title) || '';
-    if (lang === 'es') return clean(exp?.job_title_es) || clean(exp?.job_title) || '';
-
-    return clean(exp?.job_title) || '';
-  }
-
-  formatDate(dateString: string): string {
-    const date = new Date(dateString);
-
-    const lang = (this.translate.currentLang || this.translate.defaultLang || 'pt').toLowerCase();
-
-    const localeMap: Record<string, string> = {
+    const localeMap: Record<Lang, string> = {
       pt: 'pt-BR',
       en: 'en-US',
       es: 'es-ES',
     };
 
-    const locale = localeMap[lang] || 'pt-BR';
-
-    return new Intl.DateTimeFormat(locale, {
+    return new Intl.DateTimeFormat(localeMap[lang], {
       year: 'numeric',
       month: 'long',
       timeZone: 'UTC',
-    }).format(date);
+    }).format(new Date(dateString));
+  }
+
+  private presentLabel(lang: Lang): string {
+    if (lang === 'en') return 'Present';
+    if (lang === 'es') return 'Actualidad';
+    return 'Atual';
+  }
+
+  private toView(exp: ExperienceModel): ExperienceView {
+    const lang = this.getLang();
+    const anyExp = exp as any;
+
+    const view_job_title = this.pickJobTitle(anyExp, lang);
+    const view_description = this.pickDescription(anyExp, lang);
+
+    const view_start = this.formatMonthYear(anyExp?.start_date, lang);
+    const view_end = anyExp?.current_job
+      ? this.presentLabel(lang)
+      : this.formatMonthYear(anyExp?.end_date, lang);
+
+    return {
+      ...anyExp,
+      view_job_title,
+      view_description,
+      view_start,
+      view_end,
+    };
   }
 }
