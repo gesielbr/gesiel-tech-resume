@@ -2,8 +2,8 @@
   <section>
     <h2 class="section-title">Tech Stack</h2>
 
-    @if (skillsGrouped; as grouped) {
-      @for (category of grouped; track category.skill.id) {
+    @if (skillsGrouped && skillsGrouped.length > 0) {
+      @for (category of skillsGrouped; track category.skill.id) {
         <div class="mb-4">
           <h3 class="tech-category-title">{{ category.skill.nome }}</h3>
 
@@ -15,7 +15,9 @@
         </div>
       }
     } @else {
-      <p>Carregando habilidades...</p>
+      <div class="loading-container">
+        <p>Carregando habilidades...</p>
+      </div>
     }
 
     <div>

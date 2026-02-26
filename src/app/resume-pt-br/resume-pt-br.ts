@@ -78,13 +78,19 @@ export class ResumePtBrComponent implements OnInit {
         error: (error) => console.error('Erro ao carregar experiências:', error),
       });
 
-    // ✅ SKILLS: segue teu fluxo reativo por idioma
     this.skillsGrouped$ = this.translate.onLangChange.pipe(
       startWith({ lang: this.translate.currentLang || savedLang } as any),
       map((e: any) => (e.lang || savedLang) as 'pt' | 'en' | 'es'),
       distinctUntilChanged(),
       switchMap((lang) => this.dataService.getSkills(lang)),
+      // GARANTE que nunca entregue null para o filho, entrega um array vazio de cara
+      startWith([]),
     );
+
+    // Pré-carregamento em background (Opcional)
+    // Isso vai preencher o cache do service sem bloquear a tela do usuário
+    const langsToPreload: ('pt' | 'en' | 'es')[] = ['pt', 'en', 'es'];
+    langsToPreload.forEach((lang) => this.dataService.getSkills(lang).subscribe());
 
     // ✅ FORMAÇÃO: não depende de idioma
     this.formacao$ = this.dataService.getFormacao();
